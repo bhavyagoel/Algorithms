@@ -2,7 +2,7 @@
 
 int *merge(int array[], int p, int q, int r) {
     int n1 = q - p + 1;
-    int n2 = r - p;
+    int n2 = r - q;
 
     int left[n1];
     int right[n2];
@@ -12,7 +12,7 @@ int *merge(int array[], int p, int q, int r) {
     }
 
     for(int j = 0 ; j<n2; j++) {
-        right[j] = array[1 + j + 1];
+        right[j] = array[q + j + 1];
     }
 
     int i = 0;
@@ -43,6 +43,34 @@ int *merge(int array[], int p, int q, int r) {
         k++;
         j++;
     }
-
+    return array;
 }
 
+int *mergeSort(int array[], int p, int r) {
+    if (p < r) {
+        int q = (p + r)/2;
+        array = mergeSort(array, p, q);
+        array = mergeSort(array, q+1, r);
+        merge(array, p, q, r);
+    }
+
+    return array;
+}
+
+int main() {
+    int size;
+    printf("Enter the size of Array :- ");
+    scanf("%d", &size);
+    int array[size];
+    printf("Enter the elements of the array : ");
+    for(int i = 0 ; i < size; i++) {
+        scanf("%d", &array[i]);
+    }
+    int *sortedArray;
+    sortedArray = mergeSort(array, 0, size-1);
+    printf("Sorted array is : [ ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", sortedArray[i]);
+    }
+    printf("]");
+}
