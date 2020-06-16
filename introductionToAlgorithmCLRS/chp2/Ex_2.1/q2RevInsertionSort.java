@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class q1RevInsertionSort {
+public class q2RevInsertionSort {
 
     public static int[] sorting (int[] array) {
         int sortedArray[] = array;
