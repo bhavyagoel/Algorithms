@@ -18,7 +18,7 @@ long long sumBin(long long bin1, long long bin2, long long sumBinary) {
     int init = 1;
     sumBinary = 0;
     int res = 0;
-    while(bin1 != 0 && bin2 != 0) {
+    while(bin1 != 0 || bin2 != 0) {
         sumBinary += ((bin1 %10 + bin2%10 + res) %2)*init;
         res = (bin1 %10 + bin2%10 + res)/2;
         bin1 /= 10;
@@ -33,7 +33,7 @@ long long sumBin(long long bin1, long long bin2, long long sumBinary) {
 }
 int main() {
     int num1, num2;
-    printf("Enter the number to be added : ");
+    printf("Enter the numbers to be added : ");
     scanf("%d %d", &num1, &num2);
 
     long long num1Binary, num2Binary;
