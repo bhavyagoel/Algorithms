@@ -54,7 +54,7 @@ public class q7 {
         int index[] = binarySearchSum(array, size, value);
 
         if (index[2] != 0) {
-            System.out.println("Elements are found that sum " +value + " and the elements are [" +array[index[0]] +", " + array[index[1]]+ "]");
+            System.out.println("Elements are found that sum " +value + " and the elements are [" +array[index[0]] +", " + array[index[1]]+ "].");
         }
         else {
             System.out.println("Summed value is not found !!!");
