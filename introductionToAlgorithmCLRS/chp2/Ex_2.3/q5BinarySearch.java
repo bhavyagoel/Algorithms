@@ -33,7 +33,7 @@ public class q5BinarySearch {
 
         System.out.print("Enter the value to be searched for : ");
         int value = element.nextInt();
-
+        element.close();
         int index = binarySearch(array, 0, size -1 , value);
 
         if (index != -1){
