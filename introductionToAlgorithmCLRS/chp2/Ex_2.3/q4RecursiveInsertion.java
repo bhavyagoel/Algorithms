@@ -4,28 +4,31 @@ import java.util.Arrays;
 
 public class q4RecursiveInsertion {
 
-    public static int[] InsertionSort (int[] array, int p, int r ) {
+    public static int[] InsertionSort (int[] array, int n ) {
 
-        for(int j = p+1 ; j < r; j++) {
-            int key = array[j];
-            int i = j - 1 ;
-            while (i >-1 && array[i] > key ) {
-                array[i + 1] = array[i];
-                i = i - 1;
-            }
-            array[i+1] = key;
+        if (n<=1) {
+            return array;
         }
+
+        array = InsertionSort(array, n-1);
+
+        int key = array[n-1];
+        int i = n-2 ;
+        while (i >-1 && array[i] > key ) {
+            array[i + 1] = array[i];
+            i = i - 1;
+        }
+        array[i+1] = key;
         
         return(array);
     }
 
-
-    public static int[] Recursive (int[] array) {
-        for (int i = 0 ; i <= array.length; i++) {
-            array = InsertionSort(array, 0, i);
-        }
-        return array;
-    }
+    // public static int[] Recursive (int[] array) {
+    //     for (int i = 0 ; i <= array.length; i++) {
+    //         array = InsertionSort(array, 0, i);
+    //     }
+    //     return array;
+    // }
     public static void main(String[] args) {
 
         int size;
@@ -41,7 +44,7 @@ public class q4RecursiveInsertion {
         }
 
         element.close();
-        int sortedArray[] = Recursive(array);
+        int sortedArray[] = InsertionSort(array, array.length);
 
         System.out.println("New Sorted array is : " + Arrays.toString(sortedArray));
 
