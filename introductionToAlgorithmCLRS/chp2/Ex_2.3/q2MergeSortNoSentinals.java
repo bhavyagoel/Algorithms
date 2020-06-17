@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class q3MergeSortNoSentinals {
+public class q2MergeSortNoSentinals {
 
     public static int[] merge(int array[], int p, int q, int r) {
         int n1 = q - p + 1;
