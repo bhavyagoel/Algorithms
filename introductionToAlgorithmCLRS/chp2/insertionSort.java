@@ -21,20 +21,18 @@ public class insertionSort {
     public static void main(String[] args){
 
         int size;
-        System.out.println("Enter the size of array you wish to have :-");
+        System.out.print("Enter the size of array you wish to have :- ");
         Scanner element = new Scanner(System.in);
         size = element.nextInt();
         int array[] = new int[size];
 
-        System.out.println("First Defination of array is : " + Arrays.toString(array));
-        System.out.println("Enter the elements of the array");
+        System.out.print("Enter the elements of the array : ");
 
         for (int i = 0; i < size; i++) {
             array[i] = element.nextInt();
         }
 
         element.close();
-        System.out.println("Defination of array after inserting elements : " + Arrays.toString(array));
 
         int sortedArray[] = sorting(array);
 
