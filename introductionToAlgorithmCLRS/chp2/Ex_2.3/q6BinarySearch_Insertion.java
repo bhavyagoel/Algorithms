@@ -28,7 +28,6 @@ public class q6BinarySearch_Insertion {
 
         return index;
         
-
     }
     
     public static int[] InsertionBinarySearch(int array[]) {

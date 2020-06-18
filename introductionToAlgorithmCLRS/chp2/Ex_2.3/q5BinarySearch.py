@@ -3,9 +3,9 @@ import math
 def BinarySearch(array, p , r, value):
 
     if (r<p):
-        return -1;
+        return -1
     
-    q = math.floor((p + r)/ 2);
+    q = math.floor((p + r)/ 2)
     index = -1
 
     if (array[q] > value):
