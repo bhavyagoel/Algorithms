@@ -24,15 +24,13 @@ public class q7 {
         int flag = 0;
         int retIndex[] = {-1, -1, 0};
         for (int i = 0 ; i < size ; i++) {
-            if (value > array[i]) {
-                int subValue = value - array[i];
-                int otherIndex = binarySearch(array, 0, size - 1, subValue);
-                if (otherIndex != -1) {
-                    retIndex[0] = i;
-                    retIndex[1] = otherIndex;
-                    flag = 1;
-                    retIndex[2] = flag;
-                }
+            int subValue = value - array[i];
+            int otherIndex = binarySearch(array, 0, size - 1, subValue);
+            if (otherIndex != -1) {
+                retIndex[0] = i;
+                retIndex[1] = otherIndex;
+                flag = 1;
+                retIndex[2] = flag;
             }
         }
         return retIndex;
