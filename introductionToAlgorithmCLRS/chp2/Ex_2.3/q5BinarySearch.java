@@ -3,6 +3,10 @@ import java.util.Scanner;
 public class q5BinarySearch {
     public static int binarySearch(int array[], int p, int r, int value) {
 
+        if (r<p) {
+            return (-1);
+        }
+
         int q = (p + r) / 2;
         int index = -1;
 
