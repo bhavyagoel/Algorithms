@@ -14,7 +14,9 @@ public class q4Inversions {
         return count;
     }
 
-    
+    public static int MergeInversion(int array[], int size) {
+        
+    }
 
 
     public static void main(String[] args){
