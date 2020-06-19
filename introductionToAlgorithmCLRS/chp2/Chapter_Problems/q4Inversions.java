@@ -41,7 +41,7 @@ public class q4Inversions {
             }
             else {
                 array[k] = right[j];
-                count ++;
+                count += (q+1) - (p+i);
                 j = j + 1;
             }
             k++;
@@ -49,14 +49,12 @@ public class q4Inversions {
 
         while(i < n1) {
             array[k] = left[i];
-            count ++;
             i++;
             k++;
         }
 
         while(j < n2) {
             array[k] = right[j];
-            //count ++;
             k++;
             j++;
         }
@@ -93,8 +91,8 @@ public class q4Inversions {
 
         int count = Inversion(array, size);
         int count2 = MergeInversion(array, 0, size-1);
-        System.out.println("Count of inversion(s) is(are) : " +count2);
-        System.out.println("Count of inversion(s) is(are) : " +count);
+        System.out.println("Count of inversion(s) is(are)(Using Merge Sort) \t: " +count2);
+        System.out.println("Count of inversion(s) is(are)(Using Basic Approach) \t: " +count);
 
 
 
