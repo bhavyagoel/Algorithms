@@ -47,11 +47,11 @@ public class MaxSubArray {
 
             int crossResult[] = MaxCrossingArray(array, low, mid, high);
 
-            if (leftResult[1] >= rightResult[1] && leftResult[1] >= crossResult[1]) {
+            if (leftResult[2] >= rightResult[2] && leftResult[2] >= crossResult[2]) {
                 int result[] = leftResult;
                 return result;
             }
-            else if (rightResult[1] >= leftResult[1] && rightResult[1] >= crossResult[1]) {
+            else if (rightResult[2] >= leftResult[2] && rightResult[2] >= crossResult[2]) {
                 int result[] = rightResult;
                 return result;
             }
@@ -76,7 +76,16 @@ public class MaxSubArray {
             array[i] = element.nextInt();
         }
         element.close();
-        int sortedArray[] = sorting(array, 0, size-1);
-        System.out.println("Maximum Sub Array is : " +Arrays.toString(sortedArray));
+        int sortedArray[] = MaximumSubarray(array, 0, size-1);
+        int maxSum = sortedArray[2];
+        int lowIndex = sortedArray[0];
+        int highIndex = sortedArray[1];
+
+        System.out.print("Maximum Sub Array is : [ ");
+        for (int i = lowIndex ; i < highIndex+1 ; i++) {
+            System.out.print(array[i] + " ");
+        }
+
+        System.out.println(" ] , and the max Sub-array Sum is " +maxSum);
     }
 }
