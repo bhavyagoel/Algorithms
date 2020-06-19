@@ -86,6 +86,6 @@ public class MaxSubArray {
             System.out.print(array[i] + " ");
         }
 
-        System.out.println(" ] , and the max Sub-array Sum is " +maxSum);
+        System.out.println("] , and the max Sub-array Sum is " +maxSum);
     }
 }
