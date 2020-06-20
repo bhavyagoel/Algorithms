@@ -51,5 +51,11 @@ public class MatrixMutliplication {
         for (int i = 0 ; i < size ; i++) {
             System.out.println("\t\t" +Arrays.toString(arrayB[i]));
         }
+
+        int arrayC[][] = ArrayMulti(arrayA, arrayB, size);
+        System.out.println("Array C is : ");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.println("\t\t" +Arrays.toString(arrayC[i]));
+        }
     }
 }
