@@ -8,13 +8,14 @@ public class BruteForceMaxSubarray {
         int maxSum = -99999999;
 
         for (int i = 0 ; i < size-1 ; i++) {
-            sum = 0;
+            sum = array[i];
             for (int j = i+1 ; j < size ; j++) {
                 sum += array[j];
+                if (sum > maxSum) {
+                    maxSum = sum;
+                }
             }
-            if (sum > maxSum) {
-                maxSum = sum;
-            }
+            
         }
         return maxSum;
     }
