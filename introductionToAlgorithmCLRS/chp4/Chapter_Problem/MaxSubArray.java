@@ -58,7 +58,6 @@ public class MaxSubArray {
                 int result[] = crossResult;
                 return result;
             }
-
         }
     }
 
