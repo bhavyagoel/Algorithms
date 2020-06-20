@@ -5,21 +5,18 @@ public class BruteForceMaxSubarray {
 
     public static int MaxSubarray(int array[], int size) {
         int sum = 0;
+        int maxSum = -99999999;
 
         for (int i = 0 ; i < size-1 ; i++) {
-            sum += array[i];
+            sum = 0;
             for (int j = i+1 ; j < size ; j++) {
-                int new_sum = sum + array[j];
-                if (new_sum < sum) {
-                    break;
-                }
-                else {
-                    sum = new_sum;
-                    continue;
-                }
+                sum += array[j];
+            }
+            if (sum > maxSum) {
+                maxSum = sum;
             }
         }
-        return sum;
+        return maxSum;
     }
 
     public static void main(String[] args) {
