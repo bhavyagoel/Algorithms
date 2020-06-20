@@ -9,8 +9,8 @@ public class BruteForceMaxSubarray {
         for (int i = 0 ; i < size-1 ; i++) {
             sum = array[i];
             for (int j = i+1 ; j < size ; j++) {
-                int new_sum = sum + array[j];
-                if (new_sum < sum) {
+                sum = sum + array[j];
+                if (sum < sum) {
                     break;
                 }
                 else {
