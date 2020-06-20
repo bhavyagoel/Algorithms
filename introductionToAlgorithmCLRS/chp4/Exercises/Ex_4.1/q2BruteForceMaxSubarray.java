@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class BruteForceMaxSubarray {
+public class q2BruteForceMaxSubarray {
     
 
     public static int MaxSubarray(int array[], int size) {
