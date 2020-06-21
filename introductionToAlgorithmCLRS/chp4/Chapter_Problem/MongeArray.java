@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class MongeArray {
     
     public static int Monge(int array[][], int size) {
