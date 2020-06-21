@@ -36,7 +36,7 @@ public class StrassenMatrixMulti {
         for (int i = 0 ; i < 2 ; i++) {
             for (int j = 0 ; j < 2 ; j++) {
                 for (int k = 0 ; k < adjN ; k++) {
-                    for (int l = 0 ; l < adjM ; l++) {
+                    for (int l = 0 ; l < adjL ; l++) {
                         int K = k + (i & 1) * adjN;
                         int L = l + (j & 1) * adjL;
 
@@ -47,10 +47,40 @@ public class StrassenMatrixMulti {
         }
 
         int Bs[][][][] = new int[2][2][adjN][adjM];
-        
 
+        for (int i = 0 ; i < 2 ; i++) {
+            for (int j = 0 ; j < 2 ; j++) {
+                for (int k = 0 ; k < adjL ; k++) {
+                    for (int l = 0 ; l < adjM ; l++) {
+                        int K = k + (i & 1) * adjL;
+                        int L = l + (j & 1) * adjM;
 
+                        Bs[i][j][k][l] = (K < rowA && L < colA) ? arrayB[K][L] : 0 ;
+                    }
+                }
+            }
+        }
 
+        int s[][][][] = new int[10][][][];
+
+        for (int i = 0; i < 10 ; i++) {
+            switch(i) {
+                case 0:
+                    s[i] = new int[adjM][][];
+                    for (int j = 0 ; j < adjL ; j++) {
+                        s[i][j] = new int[adjM][];
+                        for (int k = 0 ; k < adjM ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = Bs[0][1][j][k] - Bs[1][1][j][k];
+                        }
+                    }
+                    break;
+                case 1:
+                    
+
+                    
+            }
+        }
     }
 
     public static void main(String[] args) {
