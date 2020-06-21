@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - MongeArray",
+            "request": "launch",
+            "mainClass": "MongeArray",
+            "projectName": "introductionToAlgorithmCLRS_7aebed80"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - q7ComplexMulti",
             "request": "launch",
             "mainClass": "q7ComplexMulti",
