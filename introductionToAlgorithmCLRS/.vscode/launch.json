@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - RecursiveMatrixMulti",
+            "request": "launch",
+            "mainClass": "RecursiveMatrixMulti",
+            "projectName": "introductionToAlgorithmCLRS_7aebed80"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
