@@ -17,23 +17,22 @@ if __name__ == "__main__":
     
     size = int(input("Enter the size of array : "))
     
-    int array[size][size];
-    printf("Enter the elements of array : \n");
-    for (int i = 0 ; i < size ; i++) {
-        printf("Enter element of row (%d) : " ,(i+1));
-        for(int j = 0 ; j < size ; j++) {
-            scanf("%d", &array[i][j]);
-        }
-    }
+    array = []
+    print("Enter the elements of array : ")
+    for i in range(size):
+        array.append([])
+        print("Enter element of row " ,(i+1), " : ", end="" )
+        array[i] = list(map(lambda x: int(x), input().split()))
+        
+    
 
-    int result = Monge(size, array);
+    result = Monge(size, array)
 
-    if (result == -1) {
-        printf("Given array is not a Monge Array. \n");
-    }
+    if (result == -1):
+        print("Given array is not a Monge Array. ")
+    
 
-    else if (result == 1) {
-        printf("Given array is a Monge Array. \n");
-    }
+    elif (result == 1):
+        print("Given array is a Monge Array. ")
+    
 
-}
