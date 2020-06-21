@@ -1,10 +1,12 @@
 import java.util.Arrays;
 import java.util.Scanner; 
+import java.lang.Math;
+
 
 
 public class RecursiveMatrixMulti {
 
-    public static void sumMatrix(int[][]arrayC, int[][]arrayB, int[][]arrayA, int rowC, int colC) {
+    public static void sumMatrix(int[][]arrayC, int[][]arrayA, int[][]arrayB, int rowC, int colC) {
         int n = arrayA.length;
         for (int i = 0; i < n; i++) {
             for(int j = 0 ; j < n; j++ ) {
@@ -41,6 +43,10 @@ public class RecursiveMatrixMulti {
         System.out.print("Enter the size of array : ");
         int size = element.nextInt();
 
+        if (((int)(Math.ceil((Math.log(size) / Math.log(2)))) != (int)(Math.floor((Math.log(size) / Math.log(2)))))) {
+            System.out.print("Enter size to be a power of 2 : ");
+            size = element.nextInt();
+        }
         int arrayA[][] = new int[size][size];
         int arrayB[][] = new int[size][size];
         System.out.println("Enter the elements for array A");
