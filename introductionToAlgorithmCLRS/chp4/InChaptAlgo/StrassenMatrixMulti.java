@@ -102,10 +102,10 @@ public class StrassenMatrixMulti {
         System.out.print("Enter the size of array : ");
         int size = element.nextInt();
 
-        while (((int)(Math.ceil((Math.log(size) / Math.log(2)))) != (int)(Math.floor((Math.log(size) / Math.log(2)))))) {
-            System.out.print("Enter size to be a power of 2 : ");
-            size = element.nextInt();
-        }
+        // while (((int)(Math.ceil((Math.log(size) / Math.log(2)))) != (int)(Math.floor((Math.log(size) / Math.log(2)))))) {
+        //     System.out.print("Enter size to be a power of 2 : ");
+        //     size = element.nextInt();
+        // }
         int arrayA[][] = new int[size][size];
         int arrayB[][] = new int[size][size];
         System.out.println("Enter the elements for array A");
