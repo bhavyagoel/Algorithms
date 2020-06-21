@@ -15,7 +15,7 @@ void sumMatrix(int rowC, int colC, int size, int arrayC[size][size], int arrayA[
     }
 }
 
-int (*)[] MatrixMulti(int rowA, int colA, int rowB, int colB, int size, int fixedSize, int arrayC[fixedSize][fixedSize], int arrayA[fixedSize][fixedSize], int arrayB[fixedSize][fixedSize]) {
+int MatrixMulti(int rowA, int colA, int rowB, int colB, int size, int fixedSize, int arrayC[fixedSize][fixedSize], int arrayA[fixedSize][fixedSize], int arrayB[fixedSize][fixedSize]) {
 
     if(size == 1) {
         arrayC[0][0] = arrayA[rowA][colA]*arrayB[rowB][colB];
