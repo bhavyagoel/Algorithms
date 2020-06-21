@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class StrassenMatrixMulti {
 
-    public void split(int[][] p, int[][] c, int iB, int jB) {
+    public static void split(int[][] p, int[][] c, int iB, int jB) {
         for (int i1=0, i2=iB ; i1 < c.length ; i1++, i2++) {
             for (int j1=0,j2=jB; j1<c.length ; j1++, j2++) {
                 c[i1][j1] = p[i2][j2];
@@ -12,7 +12,7 @@ public class StrassenMatrixMulti {
         }
     }
 
-    public int[][] Sub(int[][] A, int[][] B) {
+    public static int[][] Sub(int[][] A, int[][] B) {
         int n = A.length;
         int[][] C = new int[n][n];
         for (int i = 0; i < n ; i ++) {
@@ -24,7 +24,7 @@ public class StrassenMatrixMulti {
         return C;
     }
 
-    public int[][] Add(int[][] A, int[][] B) {
+    public static int[][] Add(int[][] A, int[][] B) {
         int n = A.length;
         int[][] C = new int[n][n];
         for (int i = 0; i < n ; i ++) {
@@ -36,7 +36,7 @@ public class StrassenMatrixMulti {
         return C;
     }
 
-    public void Join(int[][] C, int[][] P, int iB, int jB) {
+    public static void Join(int[][] C, int[][] P, int iB, int jB) {
         for (int i1 = 0, i2 = iB; i1 < C.length ; i1++, i2++) {
             for(int j1 =0, j2 = jB ; j1 < C.length ;j1++, j2++) {
                 P[i2][j2] = C[i1][j1];
@@ -44,7 +44,7 @@ public class StrassenMatrixMulti {
         }
     }
     
-    public int[][] Multiply(int[][] arrayA, int [][] arrayB) {
+    public static int[][] Multiply(int[][] arrayA, int [][] arrayB) {
         int n = arrayA.length;
         int [][] R = new int[n][n];
 
@@ -87,12 +87,57 @@ public class StrassenMatrixMulti {
             int[][] C22 = Add(Sub(Add(M1, M3), M2), M6);
 
 
-            
+            Join(C11, R,  0, 0);
+            Join(C12, R, 0, n/2);
+            Join(C21, R, n/2, 0);
+            Join(C22, R, n/2, n/2);
 
         }
+
+        return R;
     }
 
     public static void main(String[] args) {
+        Scanner element = new Scanner(System.in);
+        System.out.print("Enter the size of array : ");
+        int size = element.nextInt();
 
+        while (((int)(Math.ceil((Math.log(size) / Math.log(2)))) != (int)(Math.floor((Math.log(size) / Math.log(2)))))) {
+            System.out.print("Enter size to be a power of 2 : ");
+            size = element.nextInt();
+        }
+        int arrayA[][] = new int[size][size];
+        int arrayB[][] = new int[size][size];
+        System.out.println("Enter the elements for array A");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.print("Enter element of row (" +(i+1)+") : ");
+            for(int j = 0 ; j < size ; j++) {
+                arrayA[i][j] = element.nextInt();
+            }
+        }
+
+        System.out.println("Enter the elements for array B");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.print("Enter element of row (" +(i+1)+") : ");
+            for(int j = 0 ; j < size ; j++) {
+                arrayB[i][j] = element.nextInt();
+            }
+        }    
+        element.close();
+        System.out.println("Array A is : ");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.println("\t\t" +Arrays.toString(arrayA[i]));
+        }
+        
+        System.out.println("Array B is : ");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.println("\t\t" +Arrays.toString(arrayB[i]));
+        }
+
+        int arrayC[][] = Multiply(arrayA, arrayB);
+        System.out.println("Array C is : ");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.println("\t\t" +Arrays.toString(arrayC[i]));
+        }
     }
 }

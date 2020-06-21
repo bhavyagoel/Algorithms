@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - StrassenMatrixMulti",
+            "request": "launch",
+            "mainClass": "StrassenMatrixMulti",
+            "projectName": "introductionToAlgorithmCLRS_7aebed80"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - RecursiveMatrixMulti",
             "request": "launch",
             "mainClass": "RecursiveMatrixMulti",
