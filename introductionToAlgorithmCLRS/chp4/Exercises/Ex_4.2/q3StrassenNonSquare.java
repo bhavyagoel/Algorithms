@@ -150,15 +150,22 @@ public class q3StrassenNonSquare {
         }
         System.out.println("Array A is : ");
         for (int i = 0 ; i < size ; i++) {
-            System.out.println("\t\t" +Arrays.toString(newArrayA[i]));
+            System.out.println("\t\t" +Arrays.toString(arrayA[i]));
         }
         
         System.out.println("Array B is : ");
         for (int i = 0 ; i < size ; i++) {
-            System.out.println("\t\t" +Arrays.toString(newArrayB[i]));
+            System.out.println("\t\t" +Arrays.toString(arrayB[i]));
         }
 
-        int arrayC[][] = Multiply(newArrayA, newArrayB);
+        int newArrayC[][] = Multiply(newArrayA, newArrayB);
+
+        int arrayC[][] = new int[size][size];
+        for (int i = 0 ; i < size ; i++) {
+            for (int j = 0 ; j < size ; j++) {
+                arrayC[i][j] = newArrayC[i][j];
+            }
+        }
         System.out.println("Array C is : ");
         for (int i = 0 ; i < size ; i++) {
             System.out.println("\t\t" +Arrays.toString(arrayC[i]));
