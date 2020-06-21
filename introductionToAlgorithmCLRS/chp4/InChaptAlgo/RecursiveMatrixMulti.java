@@ -4,10 +4,11 @@ import java.util.Scanner;
 
 public class RecursiveMatrixMulti {
 
-    public static void sumMatrix(int[][]arrayC, int[][]arrayB, int[][]arrayA, int rowC, int colC, int rowA, int colA) {
-        for (int i = 0; i < rowA; i++) {
-            for(int j = 0 ; j < colA; j++ ) {
-                
+    public static void sumMatrix(int[][]arrayC, int[][]arrayB, int[][]arrayA, int rowC, int colC) {
+        int n = arrayA.length;
+        for (int i = 0; i < n; i++) {
+            for(int j = 0 ; j < n; j++ ) {
+                arrayC[i + rowC][j+colC] = arrayA[i][j] + arrayB[i][j];
             }
         }
     }
@@ -22,6 +23,13 @@ public class RecursiveMatrixMulti {
         else{
             int newSize = size/2;
 
+            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, 0);
+
+            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, 0);
+
+            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, 0);
+            
+            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, 0);
 
         }
     }
