@@ -23,24 +23,57 @@ public class RecursiveMatrixMulti {
         else{
             int newSize = size/2;
 
-            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, 0);
+            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB, newSize), 0, 0);
 
-            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, 0);
+            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB + newSize, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, newSize);
 
-            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, 0);
+            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA + newSize, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA + newSize, colA+newSize, rowB+newSize, colB, newSize), newSize, 0);
             
-            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA, colA, rowB, colB, newSize), MatrixMulti(arrayA, arrayB, rowA, colA+newSize, rowB+newSize, colB+newSize, newSize), 0, 0);
+            sumMatrix(arrayC, MatrixMulti(arrayA, arrayB, rowA + newSize, colA, rowB, colB + newSize, newSize), MatrixMulti(arrayA, arrayB, rowA + newSize, colA+newSize, rowB+newSize, colB+newSize, newSize), newSize, newSize);
 
         }
+
+        return arrayC;
     }
 
     public static void main(String[] args) {
         Scanner element = new Scanner(System.in);
-
+        System.out.print("Enter the size of array : ");
         int size = element.nextInt();
 
         int arrayA[][] = new int[size][size];
+        int arrayB[][] = new int[size][size];
+        System.out.println("Enter the elements for array A");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.print("Enter element of row (" +(i+1)+") : ");
+            for(int j = 0 ; j < size ; j++) {
+                arrayA[i][j] = element.nextInt();
+            }
+        }
 
+        System.out.println("Enter the elements for array B");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.print("Enter element of row (" +(i+1)+") : ");
+            for(int j = 0 ; j < size ; j++) {
+                arrayB[i][j] = element.nextInt();
+            }
+        }    
+        element.close();
+        System.out.println("Array A is : ");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.println("\t\t" +Arrays.toString(arrayA[i]));
+        }
+        
+        System.out.println("Array B is : ");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.println("\t\t" +Arrays.toString(arrayB[i]));
+        }
+
+        int arrayC[][] = MatrixMulti(arrayA, arrayB, 0, 0, 0, 0, size);
+        System.out.println("Array C is : ");
+        for (int i = 0 ; i < size ; i++) {
+            System.out.println("\t\t" +Arrays.toString(arrayC[i]));
+        }
     }
 }
 
