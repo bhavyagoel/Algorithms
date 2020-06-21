@@ -61,114 +61,120 @@ public class StrassenMatrixMulti {
             }
         }
 
-        int s[][][][] = new int[10][][][];
+        int s[][][] = new int[10][][];
 
         for (int i = 0; i < 10 ; i++) {
             switch(i) {
                 case 0:
-                    s[i] = new int[adjM][][];
+                    s[i] = new int[adjM][];
                     for (int j = 0 ; j < adjL ; j++) {
-                        s[i][j] = new int[adjM][];
+                        s[i][j] = new int[adjM];
                         for (int k = 0 ; k < adjM ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = Bs[0][1][j][k] - Bs[1][1][j][k];
+                            s[i][j][k] = Bs[0][1][j][k] - Bs[1][1][j][k];
                         }
                     }
                     break;
                 case 1:
-                    s[i] = new int[adjN][][];
+                    s[i] = new int[adjN][];
                     for (int j = 0 ; j < adjN ; j++) {
-                        s[i][j] = new int[adjL][];
+                        s[i][j] = new int[adjL];
                         for (int k = 0 ; k < adjL ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = As[0][0][j][k] + As[0][1][j][k];
+                            s[i][j][k] = As[0][0][j][k] + As[0][1][j][k];
                         }
                     }
                     break;
                 case 2:
-                    s[i] = new int[adjN][][];
+                    s[i] = new int[adjN][];
                     for (int j = 0 ; j < adjN ; j++) {
-                        s[i][j] = new int[adjL][];
+                        s[i][j] = new int[adjL];
                         for (int k = 0 ; k < adjL ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = As[1][0][j][k] + As[1][1][j][k];
+                            s[i][j][k] = As[1][0][j][k] + As[1][1][j][k];
                         }
                     }
                     break;
                 case 3:
-                    s[i] = new int[adjL][][];
+                    s[i] = new int[adjL][];
                     for (int j = 0 ; j < adjL ; j++) {
-                        s[i][j] = new int[adjM][];
+                        s[i][j] = new int[adjM];
                         for (int k = 0 ; k < adjM ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = Bs[1][0][j][k] - Bs[0][0][j][k];
+                            s[i][j][k] = Bs[1][0][j][k] - Bs[0][0][j][k];
                         }
                     }
                     break;
                 case 4:
-                    s[i] = new int[adjN][][];
+                    s[i] = new int[adjN][];
                     for (int j = 0 ; j < adjN ; j++) {
-                        s[i][j] = new int[adjL][];
+                        s[i][j] = new int[adjL];
                         for (int k = 0 ; k < adjL ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = As[0][0][j][k] + As[1][1][j][k];
+                            s[i][j][k] = As[0][0][j][k] + As[1][1][j][k];
                         }
                     }
                     break;
                 case 5:
-                    s[i] = new int[adjL][][];
+                    s[i] = new int[adjL][];
                     for (int j = 0 ; j < adjL ; j++) {
-                        s[i][j] = new int[adjM][];
+                        s[i][j] = new int[adjM];
                         for (int k = 0 ; k < adjM ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = Bs[0][0][j][k] + Bs[1][1][j][k];
+                            s[i][j][k] = Bs[0][0][j][k] + Bs[1][1][j][k];
                         }
                     }
                     break;
                 case 6:
-                    s[i] = new int[adjN][][];
+                    s[i] = new int[adjN][];
                     for (int j = 0 ; j < adjN ; j++) {
-                        s[i][j] = new int[adjL][];
+                        s[i][j] = new int[adjL];
                         for (int k = 0 ; k < adjL ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = As[0][1][j][k] - As[1][1][j][k];
+                            s[i][j][k] = As[0][1][j][k] - As[1][1][j][k];
                         }
                     }
                     break;
                 case 7:
-                    s[i] = new int[adjL][][];
+                    s[i] = new int[adjL][];
                     for (int j = 0 ; j < adjL ; j++) {
-                        s[i][j] = new int[adjM][];
+                        s[i][j] = new int[adjM];
                         for (int k = 0 ; k < adjM ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = Bs[1][0][j][k] + Bs[1][1][j][k];
+                            s[i][j][k] = Bs[1][0][j][k] + Bs[1][1][j][k];
                         }
                     }
                     break;
                 case 8:
-                    s[i] = new int[adjN][][];
+                    s[i] = new int[adjN][];
                     for (int j = 0 ; j < adjN ; j++) {
-                        s[i][j] = new int[adjL][];
+                        s[i][j] = new int[adjL];
                         for (int k = 0 ; k < adjL ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = As[0][0][j][k] - As[1][0][j][k];
+                            s[i][j][k] = As[0][0][j][k] - As[1][0][j][k];
                         }
                     }
                     break;
                 case 9:
-                    s[i] = new int[adjL][][];
+                    s[i] = new int[adjL][];
                     for (int j = 0 ; j < adjL ; j++) {
-                        s[i][j] = new int[adjM][];
+                        s[i][j] = new int[adjM];
                         for (int k = 0 ; k < adjM ; k++) {
-                            s[i][j][k] = new int[1];
-                            s[i][j][k][0] = Bs[0][0][j][k] + Bs[0][1][j][k];
+                            s[i][j][k] = Bs[0][0][j][k] + Bs[0][1][j][k];
                         }
                     }
                     break;
             }
         }
 
-        int p[][][][] = new int[7][][][];
+        int p[][][] = new int[7][][];
+
+        p[0] = Strassen(As[0][0], s[0], adjN, adjL, adjL, adjM);
+        p[1] = Strassen(s[1], Bs[1][1], adjN, adjL, adjL, adjM);
+        p[2] = Strassen(s[2], Bs[0][0], adjN, adjL, adjL, adjM);
+        p[3] = Strassen(As[1][1], s[3], adjN, adjL, adjL, adjM);
+        p[4] = Strassen(s[4], s[5], adjN, adjL, adjL, adjM);
+        p[5] = Strassen(s[6], s[7], adjN, adjL, adjL, adjM);
+        p[6] = Strassen(s[8], s[9], adjN, adjL, adjL, adjM);
+
+        
+
+
+
+
+
+
     }
 
     public static void main(String[] args) {
