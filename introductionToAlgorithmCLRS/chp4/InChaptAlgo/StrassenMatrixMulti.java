@@ -76,11 +76,99 @@ public class StrassenMatrixMulti {
                     }
                     break;
                 case 1:
-                    
-
-                    
+                    s[i] = new int[adjN][][];
+                    for (int j = 0 ; j < adjN ; j++) {
+                        s[i][j] = new int[adjL][];
+                        for (int k = 0 ; k < adjL ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = As[0][0][j][k] + As[0][1][j][k];
+                        }
+                    }
+                    break;
+                case 2:
+                    s[i] = new int[adjN][][];
+                    for (int j = 0 ; j < adjN ; j++) {
+                        s[i][j] = new int[adjL][];
+                        for (int k = 0 ; k < adjL ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = As[1][0][j][k] + As[1][1][j][k];
+                        }
+                    }
+                    break;
+                case 3:
+                    s[i] = new int[adjL][][];
+                    for (int j = 0 ; j < adjL ; j++) {
+                        s[i][j] = new int[adjM][];
+                        for (int k = 0 ; k < adjM ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = Bs[1][0][j][k] - Bs[0][0][j][k];
+                        }
+                    }
+                    break;
+                case 4:
+                    s[i] = new int[adjN][][];
+                    for (int j = 0 ; j < adjN ; j++) {
+                        s[i][j] = new int[adjL][];
+                        for (int k = 0 ; k < adjL ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = As[0][0][j][k] + As[1][1][j][k];
+                        }
+                    }
+                    break;
+                case 5:
+                    s[i] = new int[adjL][][];
+                    for (int j = 0 ; j < adjL ; j++) {
+                        s[i][j] = new int[adjM][];
+                        for (int k = 0 ; k < adjM ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = Bs[0][0][j][k] + Bs[1][1][j][k];
+                        }
+                    }
+                    break;
+                case 6:
+                    s[i] = new int[adjN][][];
+                    for (int j = 0 ; j < adjN ; j++) {
+                        s[i][j] = new int[adjL][];
+                        for (int k = 0 ; k < adjL ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = As[0][1][j][k] - As[1][1][j][k];
+                        }
+                    }
+                    break;
+                case 7:
+                    s[i] = new int[adjL][][];
+                    for (int j = 0 ; j < adjL ; j++) {
+                        s[i][j] = new int[adjM][];
+                        for (int k = 0 ; k < adjM ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = Bs[1][0][j][k] + Bs[1][1][j][k];
+                        }
+                    }
+                    break;
+                case 8:
+                    s[i] = new int[adjN][][];
+                    for (int j = 0 ; j < adjN ; j++) {
+                        s[i][j] = new int[adjL][];
+                        for (int k = 0 ; k < adjL ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = As[0][0][j][k] - As[1][0][j][k];
+                        }
+                    }
+                    break;
+                case 9:
+                    s[i] = new int[adjL][][];
+                    for (int j = 0 ; j < adjL ; j++) {
+                        s[i][j] = new int[adjM][];
+                        for (int k = 0 ; k < adjM ; k++) {
+                            s[i][j][k] = new int[1];
+                            s[i][j][k][0] = Bs[0][0][j][k] + Bs[0][1][j][k];
+                        }
+                    }
+                    break;
             }
         }
+
+        int p[][][][] = new int[7][][][];
     }
 
     public static void main(String[] args) {
