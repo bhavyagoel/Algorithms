@@ -43,7 +43,7 @@ public class RecursiveMatrixMulti {
         System.out.print("Enter the size of array : ");
         int size = element.nextInt();
 
-        if (((int)(Math.ceil((Math.log(size) / Math.log(2)))) != (int)(Math.floor((Math.log(size) / Math.log(2)))))) {
+        while (((int)(Math.ceil((Math.log(size) / Math.log(2)))) != (int)(Math.floor((Math.log(size) / Math.log(2)))))) {
             System.out.print("Enter size to be a power of 2 : ");
             size = element.nextInt();
         }
