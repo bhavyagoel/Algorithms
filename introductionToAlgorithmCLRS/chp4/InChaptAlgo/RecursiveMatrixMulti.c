@@ -3,46 +3,70 @@
 #include <stdlib.h>
 
 
+int **MatrixMulti(int rowA, int colA, int rowB, int colB, int size, int fixedSize, int **ArrayC, int **arrayA, int **arrayB) {
 
-
-void sumMatrix(int rowC, int colC, int size, int arrayC[size][size], int arrayA[size][size], int arrayB[size][size]) {
-    int n = size;
-    //printf("%d", n);
-    for (int i = 0; i < n; i++) {
-        for(int j = 0 ; j < n; j++ ) {
-            arrayC[i + rowC][j+colC] = arrayA[i][j] + arrayB[i][j];
-        }
+    int **arrayC;
+    arrayC = malloc((size+1) * sizeof(*arrayC));
+    for(int i = 0 ; i < size+1 ; i++) {
+        arrayC[i] = malloc((size+1) * sizeof(*arrayC));
     }
-}
-
-int MatrixMulti(int rowA, int colA, int rowB, int colB, int size, int fixedSize, int arrayC[fixedSize][fixedSize], int arrayA[fixedSize][fixedSize], int arrayB[fixedSize][fixedSize]) {
-
     if(size == 1) {
         arrayC[0][0] = arrayA[rowA][colA]*arrayB[rowB][colB];
     }
 
     else{
+        int rowC, colC;
         int newSize = size/2;
-        //printf("hello");
 
-        sumMatrix(0, 0, fixedSize, arrayC, 
-                                        MatrixMulti(rowA, colA, rowB, colB, newSize, fixedSize, arrayC, arrayA, arrayB), 
-                                        MatrixMulti(rowA, colA+newSize, rowB+newSize, colB, newSize, fixedSize, arrayC, arrayA, arrayB));
+        int **newArrayA1 = MatrixMulti(rowA, colA, rowB, colB, newSize, fixedSize, arrayC, arrayA, arrayB);
+        int **newArrayB1 = MatrixMulti(rowA, colA+newSize, rowB+newSize, colB, newSize, fixedSize, arrayC, arrayA, arrayB);
+        rowC = 0;
+        colC = 0;
+        int n = sizeof(newArrayA1) / sizeof(**newArrayA1);
+        for (int i = 0; i < n; i++) {
+            for(int j = 0 ; j < n; j++ ) {
+                arrayC[i + rowC][j+colC] = newArrayA1[i][j] + newArrayB1[i][j];
+            }
+        }
+        int **newArrayA2 = MatrixMulti(rowA, colA, rowB, colB + newSize, newSize, fixedSize, arrayC, arrayA, arrayB);
+        int **newArrayB2 = MatrixMulti(rowA, colA+newSize, rowB+newSize, colB+newSize, newSize, fixedSize, arrayC, arrayA, arrayB);
+        rowC = 0;
+        colC = newSize;
+        n = sizeof(newArrayA2) / sizeof(**newArrayA2);
+        for (int i = 0; i < n; i++) {
+            for(int j = 0 ; j < n; j++ ) {
+                arrayC[i + rowC][j+colC] = newArrayA2[i][j] + newArrayB2[i][j];
+            }
+        }
 
-        sumMatrix(0, newSize, fixedSize, arrayC, 
-                                        MatrixMulti(rowA, colA, rowB, colB + newSize, newSize, fixedSize, arrayC, arrayA, arrayB), 
-                                        MatrixMulti(rowA, colA+newSize, rowB+newSize, colB+newSize, newSize, fixedSize, arrayC, arrayA, arrayB));
 
-        sumMatrix(newSize, 0, fixedSize, arrayC, 
-                                        MatrixMulti(rowA + newSize, colA, rowB, colB, newSize, fixedSize, arrayC, arrayA, arrayB), 
-                                        MatrixMulti(rowA + newSize, colA+newSize, rowB+newSize, colB, newSize, fixedSize, arrayC, arrayA, arrayB));
+        int **newArrayA3 = MatrixMulti(rowA+newSize, colA, rowB, colB, newSize, fixedSize, arrayC, arrayA, arrayB);
+        int **newArrayB3 = MatrixMulti(rowA + newSize, colA+newSize, rowB+newSize, colB, newSize, fixedSize, arrayC, arrayA, arrayB);
+        n = sizeof(newArrayA3) / sizeof(**newArrayA3);
+        rowC = newSize;
+        colC = 0;
+        for (int i = 0; i < n; i++) {
+            for(int j = 0 ; j < n; j++ ) {
+                 arrayC[i + rowC][j+colC] = newArrayA3[i][j] + newArrayB3[i][j];
+            }
+        }
+
+        int **newArrayA4 = MatrixMulti(rowA + newSize, colA, rowB, colB + newSize, newSize, fixedSize, arrayC, arrayA, arrayB);
+        int **newArrayB4 = MatrixMulti(rowA + newSize, colA+newSize, rowB+newSize, colB+newSize, newSize, fixedSize, arrayC, arrayA, arrayB);
+        rowC = newSize;
+        colC = newSize;
+        n = sizeof(newArrayA4) / sizeof(**newArrayA4);
+        for (int i = 0; i < n; i++) {
+            for(int j = 0 ; j < n; j++ ) {
+                arrayC[i + rowC][j+colC] = newArrayA4[i][j] + newArrayB4[i][j];
+            }
         
-        sumMatrix(newSize, newSize, fixedSize, arrayC, 
-                                        MatrixMulti(rowA + newSize, colA, rowB, colB + newSize, newSize, fixedSize, arrayC, arrayA, arrayB), 
-                                        MatrixMulti(rowA + newSize, colA+newSize, rowB+newSize, colB+newSize, newSize, fixedSize, arrayC, arrayA, arrayB));
+        }
 
     }
+
     return arrayC;
+
 }
 
 void main() {
@@ -55,14 +79,12 @@ void main() {
         printf("Enter size to be a power of 2 : ");
         scanf("%d", &size);
     }
-    int arrayA[size][size];
-    int arrayB[size][size];
-    int arrayC[size][size];
-    // int **arrayA;
-    // arrayA = malloc(size * sizeof(*arrayA));
-    // for(int i = 0 ; i < size ; i++) {
-    //     arrayA[i] = malloc(size * sizeof(*arrayA));
-    // }
+
+    int **arrayA;
+    arrayA = malloc(size * sizeof(*arrayA));
+    for(int i = 0 ; i < size ; i++) {
+        arrayA[i] = malloc(size * sizeof(*arrayA));
+    }
     printf("Enter the elements for array A \n");
     for (int i = 0 ; i < size ; i++) {
         printf("Enter element of row (%d) : " ,(i+1));
@@ -70,11 +92,11 @@ void main() {
             scanf("%d", &arrayA[i][j]);
         }
     }
-    // int **arrayB;
-    // arrayB = malloc(size * sizeof(*arrayB));
-    // for(int i = 0 ; i < size ; i++) {
-    //     arrayB[i] = malloc(size * sizeof(*arrayB));
-    // }
+    int **arrayB;
+    arrayB = malloc(size * sizeof(*arrayB));
+    for(int i = 0 ; i < size ; i++) {
+        arrayB[i] = malloc(size * sizeof(*arrayB));
+    }
 
     printf("Enter the elements for array B \n");
     for (int i = 0 ; i < size ; i++) {
@@ -84,11 +106,6 @@ void main() {
         }
     }
 
-    // int **arrayC;
-    // arrayC = malloc(size * sizeof(*arrayC));
-    // for(int i = 0 ; i < size ; i++) {
-    //     arrayC[i] = malloc(size * sizeof(*arrayC));
-    // }
 
     printf("Array A is : \n");
     for (int i = 0 ; i < size ; i++) {
@@ -108,13 +125,8 @@ void main() {
         }
         printf("]\n");
     }
-    // int n = 0;
-    // n = sizeof(arrayA);
-    // int p = 0;
-    // p = sizeof(**arrayA);
-    // int q = n / p;
-    // printf("%d %d %d", n, p, q);
-    MatrixMulti(0, 0, 0, 0, size, size, arrayC, arrayA, arrayB);
+
+    int **arrayC = MatrixMulti(0, 0, 0, 0, size, size, arrayC, arrayA, arrayB);
     printf("Array C is : \n");
     for (int i = 0 ; i < size ; i++) {
         printf("\t\t[ ");
