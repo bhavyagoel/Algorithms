@@ -22,7 +22,7 @@ int **MatrixMulti(int rowA, int colA, int rowB, int colB, int size, int **arrayA
         int **newArrayB1 = MatrixMulti(rowA, colA+newSize, rowB+newSize, colB, newSize, arrayA, arrayB);
         rowC = 0;
         colC = 0;
-        int n = sizeof(newArrayA1) / sizeof(**newArrayA1);
+        int n = newSize;
         for (int i = 0; i < n; i++) {
             for(int j = 0 ; j < n; j++ ) {
                 arrayC[i + rowC][j+colC] = newArrayA1[i][j] + newArrayB1[i][j];
@@ -32,7 +32,7 @@ int **MatrixMulti(int rowA, int colA, int rowB, int colB, int size, int **arrayA
         int **newArrayB2 = MatrixMulti(rowA, colA+newSize, rowB+newSize, colB+newSize, newSize, arrayA, arrayB);
         rowC = 0;
         colC = newSize;
-        n = sizeof(newArrayA2) / sizeof(**newArrayA2);
+
         for (int i = 0; i < n; i++) {
             for(int j = 0 ; j < n; j++ ) {
                 arrayC[i + rowC][j+colC] = newArrayA2[i][j] + newArrayB2[i][j];
@@ -42,7 +42,6 @@ int **MatrixMulti(int rowA, int colA, int rowB, int colB, int size, int **arrayA
 
         int **newArrayA3 = MatrixMulti(rowA+newSize, colA, rowB, colB, newSize, arrayA, arrayB);
         int **newArrayB3 = MatrixMulti(rowA + newSize, colA+newSize, rowB+newSize, colB, newSize, arrayA, arrayB);
-        n = sizeof(newArrayA3) / sizeof(**newArrayA3);
         rowC = newSize;
         colC = 0;
         for (int i = 0; i < n; i++) {
@@ -55,7 +54,6 @@ int **MatrixMulti(int rowA, int colA, int rowB, int colB, int size, int **arrayA
         int **newArrayB4 = MatrixMulti(rowA + newSize, colA+newSize, rowB+newSize, colB+newSize, newSize, arrayA, arrayB);
         rowC = newSize;
         colC = newSize;
-        n = sizeof(newArrayA4) / sizeof(**newArrayA4);
         for (int i = 0; i < n; i++) {
             for(int j = 0 ; j < n; j++ ) {
                 arrayC[i + rowC][j+colC] = newArrayA4[i][j] + newArrayB4[i][j];
