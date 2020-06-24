@@ -6,11 +6,11 @@ public class MaxHeapify {
     }
 
     public static int Left(int i) {
-        return (2*i+1);
+        return ((2*i)+1);
     }
 
     public static int Right(int i) {
-        return (2*i+2);
+        return ((2*i)+2);
     }
 
     public static void Max(int array[], int i, int size) {
@@ -24,7 +24,7 @@ public class MaxHeapify {
         }
         else {
             largest = i;
-                }
+        }
         if (r <= size && array[r]>array[i]) {
             largest = r;
         }
