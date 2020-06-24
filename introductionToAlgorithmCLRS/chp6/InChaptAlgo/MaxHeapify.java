@@ -13,7 +13,7 @@ public class MaxHeapify {
         return (2*i+1);
     }
 
-    public static int[] MaxHeapify(int array[], int i, int size) {
+    public static int[] Max(int array[], int i, int size) {
 
         int l = Left(i);
         int r = Right(i);
