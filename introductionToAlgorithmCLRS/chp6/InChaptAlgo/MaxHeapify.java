@@ -1,12 +1,8 @@
-import java.util.Scanner; 
-import java.util.Arrays; 
-
-
 public class MaxHeapify {
 
 
     public static int Parent(int i) {
-        return (Math.floor(i/2));
+        return (int)(Math.floor(i/2));
     }
 
     public static int Left(int i) {
@@ -14,7 +10,7 @@ public class MaxHeapify {
     }
 
     public static int Right(int i) {
-        return (2i+1);
+        return (2*i+1);
     }
 
     public static int[] MaxHeapify(int array[], int i, int size) {
@@ -23,23 +19,25 @@ public class MaxHeapify {
         int r = Right(i);
         int largest;
 
-        if (l<=size and array[l]>array[i]) {
+        if (l<=size && array[l]>array[i]) {
             largest = l;
+        }
+
+        else if (r <= size && array[r]>array[i]) {
+            largest = r;
         }
         else {
             largest = i;
         }
 
-        
+        if (largest != i) {
+            int temp = array[i];
+            array[i] = array[largest];
+            array[largest] = temp;
+            MaxHeapify(array, largest, size);
+        }
 
-
+        return array;
     }
-    
-    public static void main(String[] args) {
-
-    }
-
-
-
 
 }
