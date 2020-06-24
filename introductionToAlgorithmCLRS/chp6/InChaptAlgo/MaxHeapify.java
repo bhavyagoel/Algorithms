@@ -19,14 +19,24 @@ public class MaxHeapify {
         int r = Right(i);
         int largest;
 
-        if (l<=size && array[l]>array[i]) {
+        if (l<size && array[l]>array[i]) {
             largest = l;
         }
         else {
             largest = i;
         }
-        if (r <= size && array[r]>array[i]) {
+        
+        if (largest != i) {
+            int temp = array[i];
+            array[i] = array[largest];
+            array[largest] = temp;
+            Max(array, largest, size);
+        }
+        if (r < size && array[r]>array[i]) {
             largest = r;
+        }
+        else {
+            largest = i;
         }
         
 

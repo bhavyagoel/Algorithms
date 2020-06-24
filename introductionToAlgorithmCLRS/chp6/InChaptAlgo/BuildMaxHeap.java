@@ -3,8 +3,8 @@ public class BuildMaxHeap extends MaxHeapify{
         int heapSize = size;
         int n = size;
         System.out.println(n/2);
-        for (int i = n/2+1; i>-1; i--) {
-            Max(array, i, heapSize-1);
+        for (int i = n-1; i>-1; i--) {
+            Max(array, i, heapSize);
         }
 
         return heapSize;
