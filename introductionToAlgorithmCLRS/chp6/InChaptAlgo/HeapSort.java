@@ -10,6 +10,6 @@ public class HeapSort extends BuildMaxHeap{
             Max(array, i, heapSize);
         }
 
+        return array;
     }
-    
 }

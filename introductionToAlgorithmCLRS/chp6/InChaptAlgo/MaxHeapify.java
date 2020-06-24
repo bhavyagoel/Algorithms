@@ -34,7 +34,7 @@ public class MaxHeapify {
             int temp = array[i];
             array[i] = array[largest];
             array[largest] = temp;
-            MaxHeapify(array, largest, size);
+            Max(array, largest, size);
         }
 
         return array;

@@ -5,5 +5,7 @@ public class BuildMaxHeap extends MaxHeapify{
         for (int i = n/2; i>-1; i--) {
             Max(array, i, heapSize)
         }
+
+        return array;
     }
 }
