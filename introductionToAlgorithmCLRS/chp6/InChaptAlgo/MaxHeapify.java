@@ -32,7 +32,7 @@ public class MaxHeapify {
             array[largest] = temp;
             Max(array, largest, size);
         }
-        if (l < size && array[r]>array[i]) {
+        if (r < size && array[r]>array[i]) {
             largest = r;
         }
         else {
