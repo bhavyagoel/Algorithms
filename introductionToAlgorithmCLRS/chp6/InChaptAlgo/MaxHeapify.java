@@ -37,5 +37,4 @@ public class MaxHeapify {
             Max(array, largest, heapSize);
         }
     }
-
 }
