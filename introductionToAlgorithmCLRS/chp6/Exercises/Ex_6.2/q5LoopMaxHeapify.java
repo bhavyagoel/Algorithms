@@ -3,41 +3,45 @@ import java.util.Arrays;
 public class q5LoopMaxHeapify {
     
     public static int Parent(int i) {
-        return ((i)/2);
+        return ((i-1)/2);
     }
 
     public static int Left(int i) {
-        return ((2*i));
-    }
-
-    public static int Right(int i) {
         return ((2*i)+1);
     }
 
+    public static int Right(int i) {
+        return ((2*i)+2);
+    }
+
     public static void Max(int array[], int i, int size) {
-        do {
+        int num = 1;
+        while(num==1) {
             int l = Left(i);
             int r = Right(i);
             int largest = i;
-            if (l<size && array[l]>array[i]) {
+            if (l<=size && array[l]>array[i]) {
                 largest = l;
             }
 
-            if (l < size && array[r]>array[i]) {
+            int temp = array[i];
+            array[i] = array[largest];
+            array[largest] = temp;
+            //i = largest;
+
+            if (r <= size && array[r]>array[i]) {
                 largest = r;
             }
 
-            if (largest != i) {
-                int temp = array[i];
-                array[i] = array[largest];
-                array[largest] = temp;
-                i = largest;
-            }
-            else {
+            if (largest == i) {
                 break;
             }
+            temp = array[i];
+            array[i] = array[largest];
+            array[largest] = temp;
+            i = largest;
  
-        } while (i < size);
+        }
 
     }
 
