@@ -21,6 +21,5 @@ public class master extends HeapSort{
         Sort(array, size);
         System.out.println("Your sorted array is : "+Arrays.toString(array));
 
-
     }
 }
