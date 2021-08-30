@@ -2,5 +2,13 @@
     "files.associations": {
         "chrono": "cpp",
         "iomanip": "cpp"
-    }
+    },
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "files.autoSave": "onWindowChange",
+    "editor.snippetSuggestions": "none",
+    "editor.parameterHints.enabled": false,
+    "editor.quickSuggestions": null,
+    "editor.suggest.showTypeParameters": false,
+    "C_Cpp.autocomplete": "Disabled"
 }
